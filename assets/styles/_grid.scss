@@ -1,0 +1,87 @@
+/* convert pixels to ems - defaults to 16px base */
+@function em($px, $base: 16px) {
+  @return ($px / $base) * 1em;
+}
+
+/* Grid based on https://github.com/necolas/griddle by Nicolas Gallagher (@necolas) */
+.wrapper {
+  margin-left: auto; margin-right: auto;
+  padding-left: em($grid-gutter);
+  padding-right: em($grid-gutter);
+}
+
+.grid {
+  @include clearfix;
+  display: block;
+  padding: 0;
+  margin: 0 -.5 * em($grid-gutter);
+  text-align: left;
+  text-rendering: optimizespeed;
+}
+
+.grid-cell {
+  @include box-sizing(border-box);
+  width: 100%;
+  display: block;
+  float: left;
+  padding: 0;
+  margin: 0 0;
+  vertical-align: top;
+  text-align: left;
+  text-rendering: auto;
+}
+
+img { max-width: 100%; }
+
+/* find width of columns */
+@function fixed($col) {
+  @return ($col * em($grid-column + $grid-gutter)) - em($grid-gutter)
+}
+
+/* create breakpoint label and default to mobile */
+body::before { content: 'mobile'; display: none; }
+
+/* create mq to fit columns */
+@mixin breakpoint($min, $label: false) {
+  @media (min-width: fixed($min) + em($grid-gutter)) {
+
+    /* create a fixed width centered layout */
+    .wrapper {
+      width: fixed($min);
+      margin-left: auto; margin-right: auto;
+    }
+
+    /* Render columns */
+    /* @todo Rethink this for breakpoints, adding this class doesn't break well */
+
+    @for $i from 1 through $min {
+      @if ($min % $i) == 0 and $min != $i {
+        .col#{$i} {
+          $base_span: $min/ $i;
+          @for $j from 1 through $i {
+            .span-#{$j} { width: fixed($j * $base_span); }
+          }
+        }
+      }
+    }
+
+    /* create breakpoint label if defined */
+    @if ($label) { body::before { content: $label; } }
+
+    /* css gradient overlay to help visualize columns */
+    /* Note - this class uses Compass includes */
+    // body::after {
+    //   content: ''; position: fixed; top: 0; bottom: 0; pointer-events: none; left: 50%;
+    //   width: fixed($min) + em($grid-gutter); margin-left: fixed($min) / -2 - (em($grid-gutter));
+    //   @include background(linear-gradient(left, transparent $grid-gutter, transparentize(red, .8) $grid-gutter, transparentize(red, .8) $grid-gutter + $grid-column));
+    //   @include background-size($grid-gutter + $grid-column);
+    // }
+
+    /* sass content block variable */
+    @content
+  }
+
+  @if ($ie-support and $min <= $ie-support) {
+    .lt-ie9 { @content; }
+  }
+}

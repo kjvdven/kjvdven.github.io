@@ -1,0 +1,488 @@
+/* Write your CSS! */
+/* convert pixels to ems - defaults to 16px base */
+/* Grid based on https://github.com/necolas/griddle by Nicolas Gallagher (@necolas) */
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25em;
+  padding-right: 1.25em; }
+
+.grid {
+  display: block;
+  padding: 0;
+  margin: 0 -0.625em;
+  text-align: left;
+  text-rendering: optimizespeed; }
+  .grid::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+.grid-cell {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  display: block;
+  float: left;
+  padding: 0;
+  margin: 0 0;
+  vertical-align: top;
+  text-align: left;
+  text-rendering: auto; }
+
+img {
+  max-width: 100%; }
+
+/* find width of columns */
+/* create breakpoint label and default to mobile */
+body::before {
+  content: 'mobile';
+  display: none; }
+
+/* create mq to fit columns */
+.content h1 {
+  font-size: 1.5em;
+  margin: 0 0 .75em; }
+.content h2 {
+  font-size: 1.35em;
+  margin: 0 0 .75em; }
+.content h3 {
+  font-size: 1.15em;
+  margin: 0 0 .75em; }
+.content p, .content ul, .content ol {
+  margin: 0 0 1.425em; }
+.content .lightBox {
+  text-decoration: none; }
+.content .section-header {
+  margin-bottom: 3em; }
+  .content .section-header::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .content .section-header h2 {
+    padding: 1em 0 .5em;
+    margin: 0 .75em;
+    text-align: right;
+    font-size: .825em;
+    color: #4e4e4e;
+    text-transform: lowercase;
+    font-weight: normal;
+    border-bottom: 1px solid #c1c1c1; }
+
+html {
+  height: 100%; }
+
+body {
+  background: #fff;
+  color: #373737;
+  font-family: "Lucida Sans", "MS Trebuchet", sans-serif;
+  line-height: 1.5em;
+  font-size: 16px; }
+
+h1, h2, h3, h4 {
+  margin: 0 0 .425em;
+  font-family: "Lucida Fax", Georgia, serif;
+  line-height: 1em; }
+
+a {
+  color: #069; }
+  a:visited {
+    color: #373737; }
+  a:hover {
+    color: #a33; }
+
+.shadedBG {
+  background-color: #feffff;
+  background-image: -webkit-linear-gradient(#feffff, #efefef);
+  background-image: linear-gradient(#feffff, #efefef);
+  border-bottom: 1px solid #d8d8d8; }
+
+.mobile {
+  display: block; }
+
+header.grid {
+  padding: 3.5em 0 3em; }
+header .vcard {
+  margin-top: 1.15em;
+  text-align: left; }
+header .beautifull-me {
+  text-align: center; }
+  header .beautifull-me img {
+    width: 8.75em;
+    padding: 1px;
+    vertical-align: bottom;
+    border-radius: 50%;
+    background: #fff; }
+header h1 {
+  color: #a33;
+  font-size: 2em;
+  text-align: center;
+  text-shadow: 0px 1px 1px #fff;
+  filter: dropshadow(color=#fff, offx=0, offy=1); }
+  header h1 a {
+    text-decoration: none;
+    color: #a33; }
+    header h1 a:visited {
+      color: #a33; }
+    header h1 a:hover {
+      color: #a33; }
+header h2 {
+  font-size: .9em;
+  font-weight: normal;
+  font-style: italic;
+  text-align: center;
+  color: #4e4e4e;
+  text-shadow: 0px 1px 1px #fff;
+  filter: dropshadow(color=#fff, offx=0, offy=1); }
+header h3 {
+  font-size: .9em;
+  font-weight: normal;
+  font-style: italic;
+  text-align: center;
+  color: #4e4e4e;
+  margin-bottom: 3em;
+  text-shadow: 0px 1px 1px #fff;
+  filter: dropshadow(color=#fff, offx=0, offy=1); }
+header p {
+  font-size: .9em; }
+
+#main-nav {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: #1c2025;
+  background: rgba(28, 32, 37, 0.95);
+  box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.35); }
+  #main-nav .connect {
+    display: none; }
+  #main-nav .mobile {
+    display: inline-block; }
+
+nav ul, .connect ul {
+  margin: 0;
+  padding: 0;
+  text-align: center; }
+nav li, .connect li {
+  display: inline-block;
+  padding: 0.5em 0.5em; }
+nav a, .connect a {
+  display: block;
+  color: #d8d8d8;
+  padding: .25em .75em;
+  font-size: 1em;
+  text-decoration: none; }
+  nav a:visited, .connect a:visited {
+    color: #d8d8d8; }
+  nav a:hover, .connect a:hover {
+    color: #069; }
+
+nav li.active a {
+  -webkit-box-shadow: #2a2e30 0 1px 0;
+  -moz-box-shadow: #2a2e30 0 1px 0;
+  box-shadow: #2a2e30 0 1px 0;
+  background-color: #0a0c0e;
+  color: #fff;
+  border-radius: 3px; }
+nav a {
+  font-size: .75em;
+  text-transform: lowercase;
+  font-weight: normal; }
+
+.connect a {
+  text-decoration: none; }
+
+footer .connect a {
+  color: #373737; }
+  footer .connect a:visited {
+    color: #373737; }
+  footer .connect a:hover {
+    color: #069; }
+
+#copyright {
+  text-align: center;
+  padding-top: .75em; }
+
+#main {
+  margin-top: 50px; }
+
+.project {
+  padding: 3em 0; }
+  .project::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .project dl {
+    font-size: .75em; }
+  .project dt, .project dd {
+    vertical-align: top;
+    display: inline-block; }
+  .project dt {
+    width: 12%;
+    min-width: 65px;
+    font-weight: bold; }
+  .project dd {
+    margin: 0;
+    width: 84%; }
+    .project dd span {
+      display: inline-block;
+      white-space: nowrap;
+      margin: 0 .25em .25em 0;
+      padding: 0 .5em;
+      background: #efefef;
+      line-height: 1.75em;
+      color: #000;
+      border-radius: 3px; }
+    .content .project dd a {
+      display: inline-block;
+      padding: 0 .15em;
+      text-decoration: underline; }
+
+.content .clients {
+  display: block;
+  margin: 0 0 3em;
+  padding: 0; }
+  .content .clients::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .content .clients h3 {
+    margin: 0 .6em 2em;
+    border-bottom: 1px dotted #c1c1c1;
+    padding-bottom: .25em;
+    text-align: left;
+    color: #7c7c7c;
+    font-weight: normal; }
+  .content .clients .grid-cell {
+    background: #fff;
+    text-align: center;
+    border: 0 none; }
+  .content .clients img {
+    opacity: 0.75;
+    filter: alpha(opacity=75);
+    /* For IE8 and earlier */
+    border: 0 none; }
+
+section {
+  min-height: 400px; }
+
+footer {
+  background-color: #efefef;
+  background-image: -webkit-linear-gradient(#efefef, #fff);
+  background-image: linear-gradient(#efefef, #fff);
+  border-top: 1px solid #d8d8d8;
+  padding: .5em 0; }
+
+.fancybox-title-inside-wrap {
+  padding: 0 0 1em;
+  text-align: center;
+  font-size: .875em;
+  font-family: "Lucida Sans", "MS Trebuchet", sans-serif; }
+
+.fancybox-nav {
+  width: 60px; }
+
+.fancybox-nav span {
+  visibility: visible;
+  opacity: 0.5; }
+
+.fancybox-nav:hover span {
+  opacity: 1; }
+
+.fancybox-next {
+  right: -70px; }
+
+.fancybox-prev {
+  left: -70px; }
+
+#modals {
+  display: none; }
+
+/* create 8 column layout with sidebar */
+@media (min-width: 40em) {
+  /* create a fixed width centered layout */
+  .wrapper {
+    width: 38.75em;
+    margin-left: auto;
+    margin-right: auto; }
+
+  /* Render columns */
+  /* @todo Rethink this for breakpoints, adding this class doesn't break well */
+  .col1 .span-1 {
+    width: 38.75em; }
+
+  .col2 .span-1 {
+    width: 18.75em; }
+  .col2 .span-2 {
+    width: 38.75em; }
+
+  .col4 .span-1 {
+    width: 8.75em; }
+  .col4 .span-2 {
+    width: 18.75em; }
+  .col4 .span-3 {
+    width: 28.75em; }
+  .col4 .span-4 {
+    width: 38.75em; }
+
+  /* create breakpoint label if defined */
+  body::before {
+    content: "tablet"; }
+
+  /* css gradient overlay to help visualize columns */
+  /* Note - this class uses Compass includes */
+  /* sass content block variable */
+  .mobile {
+    display: none !important; }
+
+  .grid-cell {
+    margin: 0 0.625em; }
+
+  .vcard {
+    width: 28.75em; }
+
+  .beautifull-me {
+    width: 8.75em; }
+
+  nav, #copyright {
+    width: 23.75em !important;
+    text-align: left; }
+    nav ul, #copyright ul {
+      text-align: left; }
+    nav li, #copyright li {
+      padding: 0.5em 1em 0.5em 0; }
+
+  .connect {
+    width: 13.75em;
+    text-align: right; }
+    #main-nav .connect {
+      display: block; }
+    .connect li {
+      padding: .5em 0 .5em .75em; }
+
+  .content .clients .grid-cell {
+    width: 8.75em; }
+
+  header h1, header h2, header h3, header .beautifull-me {
+    text-align: left; }
+  header h1 {
+    font-size: 2.25em; }
+  header h2 {
+    font-size: 1.2em; } }
+.lt-ie9 .mobile {
+  display: none !important; }
+.lt-ie9 .grid-cell {
+  margin: 0 0.625em; }
+.lt-ie9 .vcard {
+  width: 28.75em; }
+.lt-ie9 .beautifull-me {
+  width: 8.75em; }
+.lt-ie9 nav, .lt-ie9 #copyright {
+  width: 23.75em !important;
+  text-align: left; }
+  .lt-ie9 nav ul, .lt-ie9 #copyright ul {
+    text-align: left; }
+  .lt-ie9 nav li, .lt-ie9 #copyright li {
+    padding: 0.5em 1em 0.5em 0; }
+.lt-ie9 .connect {
+  width: 13.75em;
+  text-align: right; }
+  #main-nav .lt-ie9 .connect {
+    display: block; }
+  .lt-ie9 .connect li {
+    padding: .5em 0 .5em .75em; }
+.lt-ie9 .content .clients .grid-cell {
+  width: 8.75em; }
+.lt-ie9 header h1, .lt-ie9 header h2, .lt-ie9 header h3, .lt-ie9 header .beautifull-me {
+  text-align: left; }
+.lt-ie9 header h1 {
+  font-size: 2.25em; }
+.lt-ie9 header h2 {
+  font-size: 1.2em; }
+
+/* create 12 column layout with sidebar */
+@media (min-width: 60em) {
+  /* create a fixed width centered layout */
+  .wrapper {
+    width: 58.75em;
+    margin-left: auto;
+    margin-right: auto; }
+
+  /* Render columns */
+  /* @todo Rethink this for breakpoints, adding this class doesn't break well */
+  .col1 .span-1 {
+    width: 58.75em; }
+
+  .col2 .span-1 {
+    width: 28.75em; }
+  .col2 .span-2 {
+    width: 58.75em; }
+
+  .col3 .span-1 {
+    width: 18.75em; }
+  .col3 .span-2 {
+    width: 38.75em; }
+  .col3 .span-3 {
+    width: 58.75em; }
+
+  .col4 .span-1 {
+    width: 13.75em; }
+  .col4 .span-2 {
+    width: 28.75em; }
+  .col4 .span-3 {
+    width: 43.75em; }
+  .col4 .span-4 {
+    width: 58.75em; }
+
+  .col6 .span-1 {
+    width: 8.75em; }
+  .col6 .span-2 {
+    width: 18.75em; }
+  .col6 .span-3 {
+    width: 28.75em; }
+  .col6 .span-4 {
+    width: 38.75em; }
+  .col6 .span-5 {
+    width: 48.75em; }
+  .col6 .span-6 {
+    width: 58.75em; }
+
+  /* create breakpoint label if defined */
+  body::before {
+    content: "desktop"; }
+
+  /* css gradient overlay to help visualize columns */
+  /* Note - this class uses Compass includes */
+  /* sass content block variable */
+  .vcard {
+    width: 48.75em; }
+
+  nav, #copyright {
+    width: 43.75em !important; }
+
+  .connect {
+    width: 13.75em; }
+
+  .project figure {
+    width: 33.75em; }
+  .project .summary {
+    width: 23.75em;
+    float: right; }
+
+  .content .clients .grid-cell {
+    width: 13.75em; } }
+.lt-ie9 .vcard {
+  width: 48.75em; }
+.lt-ie9 nav, .lt-ie9 #copyright {
+  width: 43.75em !important; }
+.lt-ie9 .connect {
+  width: 13.75em; }
+.lt-ie9 .project figure {
+  width: 33.75em; }
+.lt-ie9 .project .summary {
+  width: 23.75em;
+  float: right; }
+.lt-ie9 .content .clients .grid-cell {
+  width: 13.75em; }
