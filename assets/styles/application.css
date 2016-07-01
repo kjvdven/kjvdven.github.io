@@ -220,12 +220,12 @@ footer .connect a {
     vertical-align: top;
     display: inline-block; }
   .project dt {
-    width: 12%;
+    width: 16%;
     min-width: 65px;
     font-weight: bold; }
   .project dd {
     margin: 0;
-    width: 84%; }
+    width: 82%; }
     .project dd span {
       display: inline-block;
       white-space: nowrap;
